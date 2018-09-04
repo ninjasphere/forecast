@@ -171,9 +171,9 @@ func GetResponse(key string, lat string, long string, time string, units Units) 
 
 	var url string
 	if time == "now" {
-		url = BASEURL + "/" + key + "/" + coord + "?units=" + string(units) + "&lang=" + string(lang)
+		url = BASEURL + "/" + key + "/" + coord + "?units=" + string(units)
 	} else {
-		url = BASEURL + "/" + key + "/" + coord + "," + time + "?units=" + string(units) + "&lang=" + string(lang)
+		url = BASEURL + "/" + key + "/" + coord + "," + time + "?units=" + string(units)
 	}
 
 	res, err := http.Get(url)
