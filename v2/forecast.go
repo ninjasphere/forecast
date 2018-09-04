@@ -139,8 +139,8 @@ const (
 	TraditionalChinese Lang = "zh-tw"
 )
 
-func Get(key string, lat string, long string, time string, units Units, lang Lang) (*Forecast, error) {
-	res, err := GetResponse(key, lat, long, time, units, lang)
+func Get(key string, lat string, long string, time string, units Units) (*Forecast, error) {
+	res, err := GetResponse(key, lat, long, time, units)
 	if err != nil {
 		return nil, err
 	}
@@ -166,7 +166,7 @@ func FromJSON(reader io.Reader) (*Forecast, error) {
 	return &f, nil
 }
 
-func GetResponse(key string, lat string, long string, time string, units Units, lang Lang) (*http.Response, error) {
+func GetResponse(key string, lat string, long string, time string, units Units) (*http.Response, error) {
 	coord := lat + "," + long
 
 	var url string
